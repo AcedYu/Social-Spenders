@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Javascript",
+    "content": "I love Vanilla Javascript so much that I don't even want to look at jQuery. Vanilla Javascript is the master race!"
+  },
+  {
+    "title": "jQuery",
+    "content": "I think jQuery is the best thing to ever happen to javascript, I'm never going back to vanilla Javascript after putting together so many webpages with it."
+  },
+  {
+    "title": "HandleBars",
+    "content": "HandleBars is the best way to render html for full-stack applications. I can't imagine using any else ever since picking it up."
+  },
+  {
+    "title": "CSS",
+    "content": "In cooking, it doesn't matter how good the food is if it looks bad. Appearance is a key factor to the success of all browser based programs, that's why I'm a champion for CSS."
+  },
+  {
+    "title": "BootStrap",
+    "content": "Learning Bootstrap has saved me so much time that I would otherwise spend on styling a page. Thanks world for CSS frameworks like Bootstrap."
+  }
+]

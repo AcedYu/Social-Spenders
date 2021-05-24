@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS network_db;
+
+CREATE DATABASE network_db;
