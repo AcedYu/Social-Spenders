@@ -36,6 +36,9 @@ User.init(
         len: [8],
       },
     },
+    image: {
+      type: DataTypes.STRING,
+    },
   },
   {
     hooks: {
