@@ -2,7 +2,10 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 
-import Landing from "./pages/Landing.js"
+import Landing from "./pages/Landing.js";
+import Home from "./pages/Home.js";
+import Profile from "./pages/Profile.js";
+import Market from "./pages/Market.js";
 
 function App() {
   return (
@@ -11,8 +14,14 @@ function App() {
         <Route exact path="/">
           <Landing />
         </Route>
-        <Route exact path="/saved">
-
+        <Route exact path="/home">
+          <Home />
+        </Route>
+        <Route exact path="/profile">
+          <Profile />
+        </Route>
+        <Route exact path="/market">
+          <Market />
         </Route>
       </Switch>
     </Router>
