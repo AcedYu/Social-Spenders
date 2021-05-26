@@ -3,7 +3,7 @@ import { Nav, Navbar, Accordion, Card, Button } from "react-bootstrap";
 
 const Sidebar = () => {
   return (
-    <div className="col-2 h-100" sticky="left">
+    <div className="col-2">
       <Accordion className="pl-0" defaultActiveKey="0">
         <Card>
           <Accordion.Toggle as={Button} variant="outline-secondary" eventKey="0">
@@ -15,7 +15,7 @@ const Sidebar = () => {
                 <input
                   type="text"
                   className="form-control"
-                  name="search"
+                  name="following_search"
                   placeholder="Filter Following"
                 />
               </div>
@@ -33,7 +33,7 @@ const Sidebar = () => {
                 <input
                   type="text"
                   className="form-control"
-                  name="search"
+                  name="followers_search"
                   placeholder="Filter Followers"
                 />
               </div>
