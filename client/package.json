@@ -6,8 +6,10 @@
   "proxy": "http://localhost:3001/",
   "dependencies": {
     "axios": "^0.21.1",
+    "bootstrap": "^4.6.0",
     "dotenv": "^8.2.0",
     "react": "^16.13.1",
+    "react-bootstrap": "^1.6.0",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3"

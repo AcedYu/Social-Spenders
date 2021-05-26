@@ -1,40 +1,35 @@
 import React from "react";
+import { Navbar, Nav } from "react-bootstrap";
 
-const Nav = ({page}) => {
+const Navigation = ({ page }) => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-primary border-bottom fixed-top">
-      <div className="container-fluid">
-      <img src="./img/socialspendersnav.png" alt="Social Spenders" class="d-inline-block align-text-top"/>
-        <div className="collapse navbar-collapse">
-          <div className="navbar-nav ms-md-auto">
-            <h1 className="text-primary">{page}</h1>
-          </div>
-          <ul className="navbar-nav ms-md-auto">
-            <li className="nav-item mx-2">
-              <a className="nav-link" href="/home">
-                <h4>Home</h4>
-              </a>
-            </li>
-            <li className="nav-item mx-2">
-              <a className="nav-link" href="/profile">
-                <h4>My Profile</h4>
-              </a>
-            </li>
-            <li className="nav-item mx-auto">
-              <a className="nav-link" href="/market">
-                <h4>Marketplace</h4>
-              </a>
-            </li>
-            <li className="nav-item mx-auto">
-              <a className="nav-link" href="/">
-                <h4>Sign Out</h4>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <>
+      <Navbar bg="white" variant="primary" className="border-bottom" sticky="top">
+        <Navbar.Brand href="/home">
+          <img
+            alt="Failed to Load"
+            src="./img/socialspendersnav.png"
+            className="d-inline-block align-top"
+          />
+        </Navbar.Brand>
+        <h1 className="mx-auto">{page}</h1>
+        <Nav className="ml-auto">
+          <Nav.Link href="/home" className="border-left">
+            <h4>Home</h4>
+          </Nav.Link>
+          <Nav.Link href="/profile" className="border-left">
+            <h4>Profile</h4>
+          </Nav.Link>
+          <Nav.Link href="/market" className="border-left">
+            <h4>Market</h4>
+          </Nav.Link>
+          <Nav.Link href="/" className="border-left border-right">
+            <h4>Sign Out</h4>
+          </Nav.Link>
+        </Nav>
+      </Navbar>
+    </>
   );
 }
 
-export default Nav;
+export default Navigation;
