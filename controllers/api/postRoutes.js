@@ -64,7 +64,7 @@ router.get('/myposts', async (req, res) => {
 });
 
 // view a post by id
-router.get('/post/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
     const PostData = await Post.findOne({
       where: {

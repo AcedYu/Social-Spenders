@@ -3,12 +3,8 @@ import { Nav, Navbar, Accordion, Card, Button } from "react-bootstrap";
 
 const Sidebar = () => {
   return (
-    <div className="col-2" sticky="left">
+    <div className="col-2 h-100" sticky="left">
       <Accordion className="pl-0" defaultActiveKey="0">
-        <Card>
-          <p>ACCOUNT NAME HERE?</p>
-          <p>PROFILE PHOTO HERE?</p>
-        </Card>
         <Card>
           <Accordion.Toggle as={Button} variant="outline-secondary" eventKey="0">
             Following
@@ -19,7 +15,6 @@ const Sidebar = () => {
                 <input
                   type="text"
                   className="form-control"
-                  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
                   name="search"
                   placeholder="Filter Following"
                 />
@@ -38,7 +33,6 @@ const Sidebar = () => {
                 <input
                   type="text"
                   className="form-control"
-                  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
                   name="search"
                   placeholder="Filter Followers"
                 />
@@ -46,6 +40,10 @@ const Sidebar = () => {
               <p>RENDER THE LIST OF FOLLOWERS</p>
             </Card.Body>
           </Accordion.Collapse>
+        </Card>
+        <Card className="mt-5">
+          <p>ACCOUNT NAME HERE?</p>
+          <p>PROFILE PHOTO HERE?</p>
         </Card>
       </Accordion>
     </div>
