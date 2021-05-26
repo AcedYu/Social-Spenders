@@ -3,7 +3,7 @@ import { Nav, Navbar, Accordion, Card, Button } from "react-bootstrap";
 
 const Sidebar = () => {
   return (
-    <div className="pl-0 col-2">
+    <div className="col-2" sticky="left">
       <Accordion className="pl-0" defaultActiveKey="0">
         <Card>
           <p>ACCOUNT NAME HERE?</p>

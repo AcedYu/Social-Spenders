@@ -10,12 +10,12 @@ const Landing = () => {
         <div className="col-md-10 col-lg-3">
           <form>
             <div className="form-floating mb-3">
-              <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" />
               <label>Email address</label>
+              <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" />
             </div>
             <div className="form-floating mb-3">
-              <input type="password" className="form-control" id="floatingPassword" placeholder="Password" />
               <label>Password</label>
+              <input type="password" className="form-control" id="floatingPassword" placeholder="Password" />
             </div>
             <button className="w-100 btn btn-lg btn-primary" type="submit">Sign In</button>
             <hr className="my-4" />
