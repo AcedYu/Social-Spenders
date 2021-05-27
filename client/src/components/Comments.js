@@ -26,6 +26,7 @@ const Comments = ({ comments }) => {
         comments.map((comment) => (
           <CommentsEntry
           user={comment.user.name}
+          pic={comment.user.image}
           content={comment.content}
           timestamp={comment.timestamp}
           />

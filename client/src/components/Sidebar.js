@@ -1,10 +1,14 @@
 import React from "react";
-import { Nav, Navbar, Accordion, Card, Button } from "react-bootstrap";
+import { Nav, Navbar, Accordion, Card, Button, Image } from "react-bootstrap";
 
 const Sidebar = () => {
   return (
     <div className="col-2">
-      <Accordion className="pl-0" defaultActiveKey="0">
+      <Accordion className="pl-1" defaultActiveKey="0">
+      <Card className="my-1">
+          <p className="text-center">ACCOUNT NAME HERE?</p>
+          <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfXS7fJN_7a8ya0FnVl5NP2-3g_IwPDA6WzuqNjXNyJ2ariI_7ch0xx5EhXSFMBHpg-v4&usqp=CAU" thumbnail/>
+        </Card>
         <Card>
           <Accordion.Toggle as={Button} variant="outline-secondary" eventKey="0">
             Following
@@ -40,10 +44,6 @@ const Sidebar = () => {
               <p>RENDER THE LIST OF FOLLOWERS</p>
             </Card.Body>
           </Accordion.Collapse>
-        </Card>
-        <Card className="mt-5">
-          <p>ACCOUNT NAME HERE?</p>
-          <p>PROFILE PHOTO HERE?</p>
         </Card>
       </Accordion>
     </div>

@@ -21,14 +21,14 @@ router.get('/', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['name', 'id'],
+          attributes: ['name', 'id', 'image'],
         },
         {
           model: Comment,
           attributes: ['content', 'timestamp'],
           include: {
             model: User,
-            attributes: ['name'],
+            attributes: ['name', 'id', 'image'],
           }
         }
       ],

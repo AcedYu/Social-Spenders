@@ -31,6 +31,7 @@ const Feed = () => {
           <FeedEntry
           key={post.id}
           user={post.user.name}
+          pic={post.user.image}
           content={post.content}
           timestamp={post.timestamp}
           comments={post.comments}

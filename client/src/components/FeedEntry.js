@@ -1,21 +1,24 @@
 import React from "react";
 import moment from "moment";
-import { Card, Button, Accordion } from "react-bootstrap";
+import { Card, Button, Accordion, Image } from "react-bootstrap";
 
 import Comments from "./Comments.js";
 
-const FeedEntry = ({ user, timestamp, comments, content}) => {
+const FeedEntry = ({ user, pic, timestamp, comments, content}) => {
   var formatDate = moment(timestamp).format('MMMM Do YYYY');
   var timeAgo= moment(timestamp).fromNow();
   return (
     <Card className="my-3">
-      <Card.Body>
-        <Card.Title>@{user}</Card.Title>
+      <Card.Body className="py-1">
+        <Card.Title>
+          <Image src={pic} roundedCircle height="60" width="60"/>
+          @{user}
+        </Card.Title>
         <Card.Text>
           {content}
         </Card.Text>
-        <Card.Text className="text-secondary">
-          posted {timeAgo} ({formatDate})
+        <Card.Text className="text-secondary text-right">
+          posted {timeAgo} | {formatDate}
         </Card.Text>
       </Card.Body>
       <Accordion>

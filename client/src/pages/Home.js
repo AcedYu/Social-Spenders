@@ -8,7 +8,7 @@ import Feed from "../components/Feed.js";
 const Home = () => {
   return (
     <div>
-      <Nav page="Home" />
+      <Nav page="Home Feed" />
       <div className="row">
         <Sidebar />
         <Feed />
