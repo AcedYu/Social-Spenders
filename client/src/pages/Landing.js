@@ -19,7 +19,7 @@ const Landing = () => {
             </div>
             <button className="w-100 btn btn-lg btn-primary" type="submit">Sign In</button>
             <hr className="my-4" />
-            <small className="text-muted">New to the site? Create a new account here!</small>
+            <small className="text-muted">New to the site? Create a new account <a href="/login">here!</a></small>
           </form>
         </div>
       </div>
