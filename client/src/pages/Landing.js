@@ -2,7 +2,7 @@ import React from "react";
 
 const Landing = () => {
   return (
-    <div className="h-100 container align-items-center">
+    <div className="h-100 align-items-center container">
       <div className="row align-items-center g-lg-5 py-5 h-100">
         <div className="col-lg-9">
           <img src="./img/socialspendersjumbo.png" className="d-block mx-lg-auto img-fluid" alt="Social Spenders" loading="lazy" />
