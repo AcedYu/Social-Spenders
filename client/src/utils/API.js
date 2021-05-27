@@ -17,6 +17,12 @@ export default {
     //   return axios.delete("/api/post/" + id);
     // },
     // Saves a post to the database
+    login: function(data) {
+      return axios.post("/api/user/login", data);
+    },
+    postUser: function(data) {
+      return axios.post("/api/user", data);
+    },
     postPost: function(postData) {
       return axios.post("/api/post", postData);
     }
