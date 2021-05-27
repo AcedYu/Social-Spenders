@@ -40,7 +40,7 @@ const reducer = (state, action) => {
         following: [...action.following],
       };
 
-    case GET_FOLLOWS:
+    case GET_FOLLOWERS:
       return {
         ...state,
         followers: [...action.followers],

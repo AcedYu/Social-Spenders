@@ -6,8 +6,8 @@ const CommentsEntry = ({user, pic, content, timestamp}) => {
   var formatDate = moment(timestamp).format('MMMM Do YYYY');
   var timeAgo= moment(timestamp).fromNow();
   return (
-    <Card className="my-1">
-      <Card.Body className="py-0">
+    <Card className="my-2">
+      <Card.Body className="py-1">
         <Card.Text>
           <Image src={pic} roundedCircle height="35" width="35"/>
           {content}

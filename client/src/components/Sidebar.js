@@ -1,5 +1,5 @@
 import React from "react";
-import { Nav, Navbar, Accordion, Card, Button, Image } from "react-bootstrap";
+import { Accordion, Card, Button, Image } from "react-bootstrap";
 
 const Sidebar = () => {
   return (
