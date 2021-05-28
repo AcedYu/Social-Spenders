@@ -15,7 +15,6 @@ const Feed = () => {
   const getPosts = () => {
     API.getPosts()
       .then(results => {
-        console.log(results.data);
         dispatch({
           type: UPDATE_POSTS,
           posts: results.data
@@ -23,7 +22,6 @@ const Feed = () => {
       })
       .catch(err => console.log(err));
   }
-
   return (
     <div className="col-9">
       {

@@ -3,9 +3,6 @@ import {
   REMOVE_POST,
   UPDATE_POSTS,
   ADD_POST,
-  GET_FOLLOWS,
-  GET_FOLLOWERS,
-  FOLLOW,
   SET_USER
 } from "./actions.js";
 
@@ -34,24 +31,6 @@ const reducer = (state, action) => {
         })
       };
 
-    case GET_FOLLOWS:
-      return {
-        ...state,
-        following: [...action.following],
-      };
-
-    case GET_FOLLOWERS:
-      return {
-        ...state,
-        followers: [...action.followers],
-      };
-
-    case FOLLOW:
-      return {
-        ...state,
-        following: [action.following, state.following],
-      }
-
     case SET_USER:
       return {
         ...state,
@@ -66,8 +45,6 @@ const reducer = (state, action) => {
 const StoreProvider = ({ value = [], ...props }) => {
   const [state, dispatch] = useReducer(reducer, {
     posts: [],
-    followers: [],
-    following: [],
     user: {}
   });
 

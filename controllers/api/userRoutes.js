@@ -42,7 +42,10 @@ router.post('/login', async (req, res) => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
 
-      res.json({ user: userData, message: 'You are now logged in!' });
+      res.json({
+        user: userData,
+        message: 'You are now logged in!'
+      });
     });
 
   } catch (err) {
@@ -104,6 +107,89 @@ router.get('/follow', async (req, res) => {
           },
         },
       ]
+    });
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/me', async (req, res) => {
+  console.log(req.session.user_id);
+  try {
+    const userData = await User.findOne({
+      where: {
+        id: req.session.user_id,
+      },
+      include: [
+        {
+          model: Post,
+        },
+        {
+          model: Comment,
+          include: {
+            model: User,
+            attributes: ['name'],
+          },
+        },
+        {
+          model: User,
+          attributes: ['name'],
+          as: "following",
+          through: {
+            model: Followers,
+          },
+        },
+        {
+          model: User,
+          attributes: ['name'],
+          as: "followed_by",
+          through: {
+            model: Followers,
+          },
+        },
+      ],
+    });
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/:id', async (req, res) => {
+  try {
+    const userData = await User.findOne({
+      where: {
+        id: req.params.id,
+      },
+      include: [
+        {
+          model: Post,
+        },
+        {
+          model: Comment,
+          include: {
+            model: User,
+            attributes: ['name'],
+          },
+        },
+        {
+          model: User,
+          attributes: ['name'],
+          as: "following",
+          through: {
+            model: Followers,
+          },
+        },
+        {
+          model: User,
+          attributes: ['name'],
+          as: "followed_by",
+          through: {
+            model: Followers,
+          },
+        },
+      ],
     });
     res.status(200).json(userData);
   } catch (err) {

@@ -12,6 +12,12 @@ export default {
     getPost: function(id) {
       return axios.get("/api/post/" + id);
     },
+    getSession: function(id) {
+      return axios.get("/api/user/me");
+    },
+    getUser: function(id) {
+      return axios.get("/api/user/" + id);
+    },
     // Deletes the post with the given id
     // deletePost: function(id) {
     //   return axios.delete("/api/post/" + id);
@@ -19,6 +25,9 @@ export default {
     // Saves a post to the database
     login: function(data) {
       return axios.post("/api/user/login", data);
+    },
+    logout: function() {
+      return axios.post("/api/user/logout");
     },
     postUser: function(data) {
       return axios.post("/api/user", data);

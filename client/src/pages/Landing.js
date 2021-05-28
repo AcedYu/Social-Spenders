@@ -1,6 +1,23 @@
 import React from "react";
+import API from "../utils/API";
 
 const Landing = () => {
+  const [formObject, setFormObject] = React.useState({});
+
+  function handleInputChange(event) {
+    const { name, value } = event.target;
+    setFormObject({ ...formObject, [name]: value });
+  };
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    API.login(formObject)
+      .then(res => {
+        document.location.replace('/home');
+      })
+      .catch(err => alert("PLACEHOLDER FOR FAILURE TO LOGIN REPLACE WITH A MODAL LATER"))
+  }
+
   return (
     <div className="h-100 align-items-center container">
       <div className="row align-items-center g-lg-5 py-5 h-100">
@@ -8,16 +25,33 @@ const Landing = () => {
           <img src="./img/socialspendersjumbo.png" className="d-block mx-lg-auto img-fluid" alt="Social Spenders" loading="lazy" />
         </div>
         <div className="col-md-10 col-lg-3">
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="form-floating mb-3">
               <label>Email address</label>
-              <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" />
+              <input
+                type="email"
+                className="form-control"
+                placeholder="name@example.com"
+                name="email"
+                onChange={handleInputChange}
+              />
             </div>
             <div className="form-floating mb-3">
               <label>Password</label>
-              <input type="password" className="form-control" id="floatingPassword" placeholder="Password" />
+              <input
+                type="password"
+                className="form-control"
+                placeholder="Password"
+                name="password"
+                onChange={handleInputChange}
+              />
             </div>
-            <button className="w-100 btn btn-lg btn-primary" type="submit">Sign In</button>
+            <button
+              className="w-100 btn btn-lg btn-primary"
+              type="submit"
+              >
+              Sign In
+              </button>
             <hr className="my-4" />
             <small className="text-muted">New to the site? Create a new account <a href="/login">here!</a></small>
           </form>
