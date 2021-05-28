@@ -18,6 +18,12 @@ export default {
     getUser: function(id) {
       return axios.get("/api/user/" + id);
     },
+    getMyFollowing: function() {
+      return axios.get("/api/user/myfollowing");
+    },
+    getMyFollowers: function() {
+      return axios.get("/api/user/myfollowers");
+    },
     // Deletes the post with the given id
     // deletePost: function(id) {
     //   return axios.delete("/api/post/" + id);

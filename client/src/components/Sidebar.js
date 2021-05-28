@@ -4,7 +4,8 @@ import { useStoreContext } from "../utils/GlobalState";
 import { SET_USER } from "../utils/actions";
 import API from "../utils/API.js";
 
-import UserList from "./UserList.js"
+import FollowerList from "./FollowerList.js";
+import FollowingList from "./FollowingList.js";
 
 const Sidebar = () => {
   const [state, dispatch] = useStoreContext();
@@ -36,7 +37,7 @@ const Sidebar = () => {
             </Accordion.Toggle>
           <Accordion.Collapse eventKey="0">
             <Card.Body className="px-1 py-0">
-              <UserList type="Following" list={state.user.following}/>
+              <FollowingList/>
             </Card.Body>
           </Accordion.Collapse>
         </Card>
@@ -46,7 +47,7 @@ const Sidebar = () => {
             </Accordion.Toggle>
           <Accordion.Collapse eventKey="1">
             <Card.Body className="px-1 py-0">
-              <UserList type="Followers" list={state.user.followed_by}/>
+              <FollowerList/>
             </Card.Body>
           </Accordion.Collapse>
         </Card>
