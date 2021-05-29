@@ -3,8 +3,21 @@ import API from "../utils/API";
 
 import CommentsEntry from "./CommentsEntry.js"
 
-const Comments = ({ post_id, comments, refresh }) => {
+const Comments = ({ post_id }) => {
+  const [comments, setComments] = React.useState([]);
   const [formObject, setFormObject] = React.useState({});
+
+  React.useEffect(() => {
+    getComents(post_id);
+  }, []);
+
+  const getComents = (id) => {
+    API.getPostComments(id)
+      .then(res => {
+        setComments(res.data)
+      })
+      .catch(err => console.log(err));
+  }
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -12,13 +25,15 @@ const Comments = ({ post_id, comments, refresh }) => {
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault();
     var commentbody = {
       content: formObject.comment,
       post_id: post_id
     }
     API.postComment(commentbody)
-      .then((res) => refresh())
+      .then((res) => {
+        setFormObject({});
+        getComents(post_id);
+      })
       .catch(err => console.log(err))
   }
 
@@ -28,7 +43,6 @@ const Comments = ({ post_id, comments, refresh }) => {
         <input
           type="text"
           className="form-control"
-          aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
           name="comment"
           placeholder="Your comment here"
           onChange={handleInputChange}

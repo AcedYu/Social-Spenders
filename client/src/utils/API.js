@@ -8,6 +8,9 @@ export default {
     getMyPosts: function() {
       return axios.get("/api/post/myposts");
     },
+    getPostComments: function(post_id) {
+      return axios.get("api/comment/" + post_id);
+    },
     // Gets the post with the given id
     getPost: function(id) {
       return axios.get("/api/post/" + id);

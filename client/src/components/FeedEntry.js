@@ -30,8 +30,6 @@ const FeedEntry = ({ post_id, user, pic, timestamp, comments, content, refresh})
             <Card.Body className="px-1 py-0">
               <Comments
               post_id = {post_id}
-              comments = {comments}
-              refresh = {refresh}
               />
             </Card.Body>
           </Accordion.Collapse>
