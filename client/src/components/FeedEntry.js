@@ -4,7 +4,7 @@ import { Card, Button, Accordion, Image } from "react-bootstrap";
 
 import Comments from "./Comments.js";
 
-const FeedEntry = ({ user, pic, timestamp, comments, content}) => {
+const FeedEntry = ({ post_id, user, pic, timestamp, comments, content, refresh}) => {
   var formatDate = moment(timestamp).format('MMMM Do YYYY');
   var timeAgo= moment(timestamp).fromNow();
   return (
@@ -29,7 +29,9 @@ const FeedEntry = ({ user, pic, timestamp, comments, content}) => {
           <Accordion.Collapse eventKey="0">
             <Card.Body className="px-1 py-0">
               <Comments
+              post_id = {post_id}
               comments = {comments}
+              refresh = {refresh}
               />
             </Card.Body>
           </Accordion.Collapse>

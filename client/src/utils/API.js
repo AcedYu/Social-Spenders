@@ -40,5 +40,8 @@ export default {
     },
     postPost: function(postData) {
       return axios.post("/api/post", postData);
+    },
+    postComment: function(commentData) {
+      return axios.post("/api/comment", commentData);
     }
 }

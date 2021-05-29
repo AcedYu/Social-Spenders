@@ -25,7 +25,7 @@ const FollowerList = () => {
       .catch(err => console.log(err));
   }
 
-  function handleInputChange(event) {
+  const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormObject({ ...formObject, [name]: value });
     setFollowers(state.followers.filter(user => user.name.toLowerCase().includes(value.toLowerCase())))
@@ -45,7 +45,7 @@ const FollowerList = () => {
       <ListGroup>
         {
           followers.map(user => (
-            <ListGroup.Item action variant="primary" className="py-1 text-center">{user.name}</ListGroup.Item>
+            <ListGroup.Item action variant="light" className="py-1 text-center">{user.name}</ListGroup.Item>
           ))
         }
       </ListGroup>

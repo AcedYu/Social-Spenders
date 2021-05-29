@@ -22,17 +22,19 @@ const Feed = () => {
       })
       .catch(err => console.log(err));
   }
+
   return (
     <div className="col-9">
       {
         state.posts.map((post) => (
           <FeedEntry
-          key={post.id}
+          post_id={post.id}
           user={post.user.name}
           pic={post.user.image}
           content={post.content}
           timestamp={post.timestamp}
           comments={post.comments}
+          refresh={getPosts}
           />
         ))
       }
