@@ -4,6 +4,7 @@ import { UPDATE_POSTS } from "../utils/actions";
 import API from "../utils/API";
 
 import FeedEntry from "./FeedEntry.js";
+import CreatePost from "./CreatePost.js";
 
 const Feed = () => {
   const [state, dispatch] = useStoreContext();
@@ -23,8 +24,13 @@ const Feed = () => {
       .catch(err => console.log(err));
   }
 
+  const createPost = (event) => {
+    event.preventDefault();
+  }
+
   return (
     <div className="col-9">
+      <CreatePost />
       {
         state.posts.map((post) => (
           <FeedEntry
