@@ -157,7 +157,6 @@ router.get('/me', async (req, res) => {
 });
 
 router.get('/myfollowing', async (req, res) => {
-  console.log(req.session.user_id);
   try {
     const userData = await User.findOne({
       where: {
@@ -181,7 +180,6 @@ router.get('/myfollowing', async (req, res) => {
 });
 
 router.get('/myfollowers', async (req, res) => {
-  console.log(req.session.user_id);
   try {
     const userData = await User.findOne({
       where: {
@@ -199,6 +197,52 @@ router.get('/myfollowers', async (req, res) => {
       ],
     });
     res.status(200).json(userData.followed_by);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/followers/:user_id', async (req, res) => {
+  try {
+    const userData = await User.findOne({
+      where: {
+        id: req.params.user_id,
+      },
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+          as: "followed_by",
+          through: {
+            model: Followers,
+          },
+        },
+      ],
+    });
+    res.status(200).json(userData.followed_by);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/following/:user_id', async (req, res) => {
+  try {
+    const userData = await User.findOne({
+      where: {
+        id: req.params.user_id,
+      },
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+          as: "following",
+          through: {
+            model: Followers,
+          },
+        },
+      ],
+    });
+    res.status(200).json(userData.following);
   } catch (err) {
     res.status(500).json(err);
   }

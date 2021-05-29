@@ -9,7 +9,7 @@ const CommentsEntry = ({user, pic, content, timestamp}) => {
     <Card className="my-2">
       <Card.Body className="py-1">
         <Card.Text>
-          <Image src={pic} roundedCircle height="35" width="35"/>
+          <Image src={pic} roundedCircle height="35" width="35" className="border"/>
           {content}
           <p className="text-secondary mb-0">@{user}</p>
           <p className="text-secondary mb-0 text-right">posted {timeAgo} | {formatDate}</p>

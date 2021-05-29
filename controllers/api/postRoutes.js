@@ -43,13 +43,38 @@ router.get('/', async (req, res) => {
 router.get('/myposts', async (req, res) => {
   try {
     const userPostData = await Post.findAll({
+      order: [['timestamp', 'DESC']],
       where: {
         user_id: req.session.user_id,
       },
       include: [
         {
           model: User,
-          attributes: ['name', 'id'],
+          attributes: ['name', 'id', 'image'],
+        },
+        {
+          model: Comment,
+          attributes: ['content'],
+        }
+      ],
+    });
+    res.status(200).json(userPostData);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+router.get('/user/:id', async (req, res) => {
+  try {
+    const userPostData = await Post.findAll({
+      order: [['timestamp', 'DESC']],
+      where: {
+        user_id: req.params.id,
+      },
+      include: [
+        {
+          model: User,
+          attributes: ['name', 'id', 'image'],
         },
         {
           model: Comment,
@@ -73,7 +98,7 @@ router.get('/:id', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['name', 'id'],
+          attributes: ['name', 'id', 'image'],
         },
         {
           model: Comment,

@@ -40,7 +40,6 @@ const Feed = () => {
           content={post.content}
           timestamp={post.timestamp}
           comments={post.comments}
-          refresh={getPosts}
           />
         ))
       }

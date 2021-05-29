@@ -11,7 +11,7 @@ const FeedEntry = ({ post_id, user, pic, timestamp, comments, content, refresh})
     <Card className="my-3">
       <Card.Body className="py-1">
         <Card.Title>
-          <Image src={pic} roundedCircle height="60" width="60"/>
+          <Image src={pic} roundedCircle height="60" width="60" className="border"/>
           @{user}
         </Card.Title>
         <Card.Text>
