@@ -11,44 +11,8 @@ const ProfileData = () => {
   const [state, dispatch] = useStoreContext();
 
   React.useEffect(() => {
-    getSession();
-    getFollowers();
-    getFollowing();
     getPosts();
   }, []);
-
-  const getSession = () => {
-    API.getSession()
-      .then(res => {
-        dispatch({
-          type: SET_USER,
-          user: res.data
-        });
-      })
-      .catch(err => console.log(err));
-  }
-
-  const getFollowers = () => {
-    API.getMyFollowers()
-      .then(results => {
-        dispatch({
-          type: GET_FOLLOWERS,
-          followers: results.data
-        });
-      })
-      .catch(err => console.log(err));
-  }
-
-  const getFollowing = () => {
-    API.getMyFollowing()
-      .then(results => {
-        dispatch({
-          type: GET_FOLLOWING,
-          following: results.data
-        });
-      })
-      .catch(err => console.log(err));
-  }
 
   const getPosts = () => {
     API.getMyPosts()

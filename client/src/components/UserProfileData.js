@@ -2,61 +2,52 @@ import React from "react";
 import API from "../utils/API.js";
 import { Card, Button, Image } from "react-bootstrap";
 import { useStoreContext } from "../utils/GlobalState";
-import { SET_USER, GET_FOLLOWERS, GET_FOLLOWING, UPDATE_POSTS } from "../utils/actions";
 
 import FeedEntry from "./FeedEntry.js";
 
-const UserProfileData = (props) => {
+const UserProfileData = () => {
   const [state, dispatch] = useStoreContext();
+  const [user, setUser] = React.useState({});
+  const [following, setFollowing] = React.useState([]);
+  const [followers, setFollowers] = React.useState([]);
+  const [posts, setPosts] = React.useState([]);
   const user_id = document.location.pathname.split('=')[1];
 
   React.useEffect(() => {
-    getSession();
+    getUser();
     getFollowers();
     getFollowing();
     getPosts();
   }, []);
 
-  const getSession = () => {
+  const getUser = () => {
     API.getUser(user_id)
       .then(res => {
-        dispatch({
-          type: SET_USER,
-          user: res.data
-        });
+        setUser(res.data)
       })
       .catch(err => console.log(err));
   }
 
   const getFollowers = () => {
     API.getUserFollowers(user_id)
-      .then(results => {
-        dispatch({
-          type: GET_FOLLOWERS,
-          followers: results.data
-        });
+      .then(res => {
+        setFollowers(res.data)
       })
       .catch(err => console.log(err));
   }
 
   const getFollowing = () => {
     API.getUserFollowing(user_id)
-      .then(results => {
-        dispatch({
-          type: GET_FOLLOWING,
-          following: results.data
-        });
+      .then(res => {
+        setFollowing(res.data)
       })
       .catch(err => console.log(err));
   }
 
   const getPosts = () => {
     API.getUserPosts(user_id)
-      .then(results => {
-        dispatch({
-          type: UPDATE_POSTS,
-          posts: results.data
-        });
+      .then(res => {
+        setPosts(res.data)
       })
       .catch(err => console.log(err));
   }
@@ -65,12 +56,12 @@ const UserProfileData = (props) => {
       <Card className="my-1">
         <div className="row">
           <div className="col-4">
-            <Image src={state.user.image} roundedCircle height="200" width="200" className="border ml-2 my-2" />
+            <Image src={user.image} roundedCircle height="200" width="200" className="border ml-2 my-2" />
           </div>
           <Card.Body className="col-4">
-          <h1>@{state.user.name}</h1>
-          <h5>{state.user.email}</h5>
-          <h5 className="text-secondary">{state.following.length} Following | {state.followers.length} Followers</h5>
+          <h1>@{user.name}</h1>
+          <h5>{user.email}</h5>
+          <h5 className="text-secondary">{following.length} Following | {followers.length} Followers</h5>
           </Card.Body>
           <div className="col-4">
             <Button size="lg" className="float-right mx-1 my-1">Follow</Button>
@@ -78,7 +69,7 @@ const UserProfileData = (props) => {
         </div>
       </Card>
       {
-        state.posts.map((post) => (
+        posts.map((post) => (
           <FeedEntry
           post_id={post.id}
           user={post.user.name}
