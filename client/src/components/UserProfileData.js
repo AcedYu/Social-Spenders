@@ -51,6 +51,17 @@ const UserProfileData = () => {
       })
       .catch(err => console.log(err));
   }
+
+  const followBool = () => {
+    for (let person of state.following) {
+      if (user.id === person.id) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  console.log(followBool());
   return (
     <div className="col-9">
       <Card className="my-1">
@@ -64,7 +75,9 @@ const UserProfileData = () => {
           <h5 className="text-secondary">{following.length} Following | {followers.length} Followers</h5>
           </Card.Body>
           <div className="col-4">
-            <Button size="lg" className="float-right mx-1 my-1">Follow</Button>
+            {
+              !followBool() && <Button size="lg" className="float-right mx-1 my-1">Follow</Button>
+            }
           </div>
         </div>
       </Card>
@@ -72,6 +85,7 @@ const UserProfileData = () => {
         posts.map((post) => (
           <FeedEntry
           post_id={post.id}
+          user_id={post.user.id}
           user={post.user.name}
           pic={post.user.image}
           content={post.content}
