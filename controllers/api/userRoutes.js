@@ -165,7 +165,7 @@ router.get('/myfollowing', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: ['id', 'name'],
           as: "following",
           through: {
             model: Followers,
@@ -188,7 +188,7 @@ router.get('/myfollowers', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: ['id', 'name'],
           as: "followed_by",
           through: {
             model: Followers,
@@ -211,7 +211,7 @@ router.get('/followers/:user_id', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: ['id', 'name'],
           as: "followed_by",
           through: {
             model: Followers,
@@ -234,7 +234,7 @@ router.get('/following/:user_id', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: ['id', 'name'],
           as: "following",
           through: {
             model: Followers,

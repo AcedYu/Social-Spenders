@@ -8,7 +8,7 @@ const Market = () => {
   return (
     <div>
       <Nav page="Marketplace"/>
-      <div className="row">
+      <div className="row container-fluid">
         <Sidebar />
         <MarketFeed />
       </div>

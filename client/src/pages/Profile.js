@@ -8,7 +8,7 @@ const Profile = () => {
   return (
     <div>
       <Nav page="My Profile"/>
-      <div className="row">
+      <div className="row container-fluid">
         <Sidebar />
         <ProfileData />
       </div>

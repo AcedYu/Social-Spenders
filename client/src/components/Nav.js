@@ -13,7 +13,7 @@ const Navigation = ({ page }) => {
 
   return (
     <>
-      <Navbar bg="white" variant="primary" className="border-bottom" sticky="top">
+      <Navbar bg="white" variant="primary" className="border-bottom px-0" sticky="top">
         <Navbar.Brand href="/home">
           <img
             alt="Failed to Load"

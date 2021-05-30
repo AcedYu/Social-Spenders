@@ -34,7 +34,7 @@ const Comments = ({ post_id }) => {
         setFormObject({});
         getComents(post_id);
       })
-      .catch(err => console.log(err))
+      .catch(err => alert(err + "\nPlease type in valid content for your comment\n REPLACE THIS ALERT WITH A MODAL IF TIME ALLOWS"))
   }
 
   return (

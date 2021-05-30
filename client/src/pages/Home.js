@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <div>
       <Nav page="Home Feed" />
-      <div className="row">
+      <div className="row container-fluid">
         <Sidebar />
         <Feed />
       </div>

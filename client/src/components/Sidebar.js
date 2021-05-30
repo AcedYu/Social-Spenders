@@ -25,8 +25,8 @@ const Sidebar = () => {
       .catch(err => console.log(err));
   }
   return (
-    <div className="col-2">
-      <Accordion className="pl-1" defaultActiveKey="0">
+    <div className="col-2 pl-1">
+      <Accordion defaultActiveKey="0">
         <Card className="my-1">
           <h3 className="text-center">{state.user.name}</h3>
           <Image src={state.user.image} thumbnail />

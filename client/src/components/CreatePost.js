@@ -11,18 +11,19 @@ const CreatePost = () => {
   };
 
   const handleSubmit = (event) => {
+    event.preventDefault();
     var postBody = {
       content: formObject.post
     }
     API.postPost(postBody)
-      .then(() => {
+      .then(res => {
         window.location.reload()
       })
-      .catch(err => console.log(err))
+      .catch(err => alert(err + "\nPlease type in valid content for your post\n REPLACE THIS ALERT WITH A MODAL IF TIME ALLOWS"))
   }
 
   return (
-    <Card className="px-3 py-0 my-3">
+    <Card className="px-3 py-0 my-1">
       <form onSubmit={handleSubmit}>
         <h1>Create a New Post</h1>
         <textarea
