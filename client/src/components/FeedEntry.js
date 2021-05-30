@@ -4,15 +4,17 @@ import { Card, Button, Accordion, Image } from "react-bootstrap";
 
 import Comments from "./Comments.js";
 
-const FeedEntry = ({ post_id, user, pic, timestamp, comments, content, refresh}) => {
+const FeedEntry = ({ post_id, user_id, user, pic, timestamp, comments, content, refresh }) => {
   var formatDate = moment(timestamp).format('MMMM Do YYYY');
-  var timeAgo= moment(timestamp).fromNow();
+  var timeAgo = moment(timestamp).fromNow();
   return (
     <Card className="my-3">
       <Card.Body className="py-1">
         <Card.Title>
-          <Image src={pic} roundedCircle height="60" width="60" className="border"/>
-          @{user}
+          <Image src={pic} roundedCircle height="60" width="60" className="border" />
+          <a href={"/profile&user=" + user_id}>
+            @{user}
+          </a>
         </Card.Title>
         <Card.Text>
           {content}
@@ -29,7 +31,7 @@ const FeedEntry = ({ post_id, user, pic, timestamp, comments, content, refresh})
           <Accordion.Collapse eventKey="0">
             <Card.Body className="px-1 py-0">
               <Comments
-              post_id = {post_id}
+                post_id={post_id}
               />
             </Card.Body>
           </Accordion.Collapse>

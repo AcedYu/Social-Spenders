@@ -45,7 +45,9 @@ const FollowingList = () => {
       <ListGroup>
         {
           following.map(user => (
-            <ListGroup.Item action variant="light" className="py-1 text-center">{user.name}</ListGroup.Item>
+            <a href={"/profile&user=" + user.id}>
+              <ListGroup.Item action variant="light" className="py-1 text-center">{user.name}</ListGroup.Item>
+            </a>
           ))
         }
       </ListGroup>

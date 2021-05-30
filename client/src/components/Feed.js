@@ -35,6 +35,7 @@ const Feed = () => {
         state.posts.map((post) => (
           <FeedEntry
           post_id={post.id}
+          user_id={post.user.id}
           user={post.user.name}
           pic={post.user.image}
           content={post.content}

@@ -5,9 +5,10 @@ import Sidebar from "../components/Sidebar.js";
 import UserProfileData from "../components/UserProfileData.js";
 
 const UserProfile = () => {
+  const user_id = document.location.pathname.split('=')[1];
   return (
     <div>
-      <Nav page="User Profile"/>
+      <Nav/>
       <div className="row container-fluid">
         <Sidebar />
         <UserProfileData />
