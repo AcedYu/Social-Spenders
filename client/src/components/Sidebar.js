@@ -1,14 +1,12 @@
 import React from "react";
 import { Accordion, Card, Button, Image } from "react-bootstrap";
-import { useStoreContext } from "../utils/GlobalState";
-import { SET_USER } from "../utils/actions";
 import API from "../utils/API.js";
 
 import FollowerList from "./FollowerList.js";
 import FollowingList from "./FollowingList.js";
 
 const Sidebar = () => {
-  const [state, dispatch] = useStoreContext();
+  const [user, setUser] = React.useState({});
 
   React.useEffect(() => {
     getSession();
@@ -17,10 +15,7 @@ const Sidebar = () => {
   function getSession() {
     API.getSession()
       .then(res => {
-        dispatch({
-          type: SET_USER,
-          user: res.data
-        });
+        setUser(res.data)
       })
       .catch(err => console.log(err));
   }
@@ -28,8 +23,8 @@ const Sidebar = () => {
     <div className="col-2 pl-1">
       <Accordion defaultActiveKey="0">
         <Card className="my-1">
-          <h3 className="text-center">{state.user.name}</h3>
-          <Image src={state.user.image} thumbnail />
+          <h3 className="text-center">{user.name}</h3>
+          <Image src={user.image} thumbnail />
         </Card>
         <Card>
           <Accordion.Toggle as={Button} variant="outline-secondary" eventKey="0">

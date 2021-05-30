@@ -8,6 +8,7 @@ import Login from "./pages/Login.js";
 import Home from "./pages/Home.js";
 import Profile from "./pages/Profile.js";
 import Market from "./pages/Market.js";
+import UserProfile from "./pages/UserProfile.js";
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
           </Route>
           <Route exact path="/profile">
             <Profile />
+          </Route>
+          <Route exact path="/profile&user=:id">
+            <UserProfile/>
           </Route>
           <Route exact path="/market">
             <Market />

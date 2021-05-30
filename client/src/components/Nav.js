@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, Nav } from "react-bootstrap";
+import { Navbar, Nav, Image } from "react-bootstrap";
 import API from "../utils/API.js";
 
 const Navigation = ({ page }) => {
@@ -15,7 +15,7 @@ const Navigation = ({ page }) => {
     <>
       <Navbar bg="white" variant="primary" className="border-bottom px-0" sticky="top">
         <Navbar.Brand href="/home">
-          <img
+          <Image
             alt="Failed to Load"
             src="./img/socialspendersnav.png"
             className="d-inline-block align-top"
