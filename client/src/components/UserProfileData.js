@@ -2,6 +2,7 @@ import React from "react";
 import API from "../utils/API.js";
 import { Card, Button, Image } from "react-bootstrap";
 import { useStoreContext } from "../utils/GlobalState";
+import { FOLLOW } from "../utils/actions";
 
 import FeedEntry from "./FeedEntry.js";
 
@@ -52,7 +53,23 @@ const UserProfileData = () => {
       .catch(err => console.log(err));
   }
 
+  const followUser = (event) => {
+    var followBody = {
+      user_id: state.user.id,
+      follow_id: user.id
+    }
+    API.follow(followBody)
+      .then(res => {
+        window.location.reload()
+      })
+      .catch(err => alert("system failure, this alert should never actually show up"))
+  }
+  // returns true if the logged in user is following the viewed user
   const followBool = () => {
+    // if the user view is the logged in viewer, return true
+    if (state.user.id === user.id) {
+      return true;
+    }
     for (let person of state.following) {
       if (user.id === person.id) {
         return true;
@@ -61,7 +78,6 @@ const UserProfileData = () => {
     return false;
   }
 
-  console.log(followBool());
   return (
     <div className="col-9">
       <Card className="my-1">
@@ -76,7 +92,7 @@ const UserProfileData = () => {
           </Card.Body>
           <div className="col-4">
             {
-              !followBool() && <Button size="lg" className="float-right mx-1 my-1">Follow</Button>
+              !followBool() && <Button size="lg" className="float-right mx-1 my-1" onClick={followUser}>Follow</Button>
             }
           </div>
         </div>

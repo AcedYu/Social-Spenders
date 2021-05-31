@@ -7,6 +7,7 @@ import Comments from "./Comments.js";
 const FeedEntry = ({ post_id, user_id, user, pic, timestamp, comments, content, refresh }) => {
   var formatDate = moment(timestamp).format('MMMM Do YYYY');
   var timeAgo = moment(timestamp).fromNow();
+  var page = document.location.pathname;
   return (
     <Card className="my-3">
       <Card.Body className="py-1">
@@ -15,6 +16,9 @@ const FeedEntry = ({ post_id, user_id, user, pic, timestamp, comments, content, 
           <a href={"/profile&user=" + user_id}>
             @{user}
           </a>
+          {
+            page === "/profile" && <Button variant="danger" size="sm" className="float-right">Delete Post</Button>
+          }
         </Card.Title>
         <Card.Text>
           {content}

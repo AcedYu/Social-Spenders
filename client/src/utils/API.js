@@ -61,6 +61,10 @@ export default {
     postPost: function(postData) {
       return axios.post("/api/post", postData);
     },
+    // API call to create a follow entry
+    follow: function(followData) {
+      return axios.post("/api/user/follow", followData);
+    },
     // API call to create a comment, the user automatically defaults to the logged in user
     postComment: function(commentData) {
       return axios.post("/api/comment", commentData);

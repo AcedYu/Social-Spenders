@@ -202,6 +202,15 @@ router.get('/myfollowers', async (req, res) => {
   }
 });
 
+router.post('/follow', async (req, res) => {
+  try {
+    const followData = await Followers.create(req.body)
+    res.status(200).json(followData);
+  } catch {
+    res.status(500).json(err);
+  }
+});
+
 router.get('/followers/:user_id', async (req, res) => {
   try {
     const userData = await User.findOne({
