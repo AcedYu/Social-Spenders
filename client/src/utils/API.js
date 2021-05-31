@@ -68,5 +68,5 @@ export default {
     // API call to create a comment, the user automatically defaults to the logged in user
     postComment: function(commentData) {
       return axios.post("/api/comment", commentData);
-    }
+    },
 }
