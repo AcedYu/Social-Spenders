@@ -69,4 +69,7 @@ export default {
     postComment: function(commentData) {
       return axios.post("/api/comment", commentData);
     },
+    deletePost: function(id) {
+      return axios.delete("/api/post/" + id);
+    }
 }

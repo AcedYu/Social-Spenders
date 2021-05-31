@@ -1,6 +1,7 @@
 import React from "react";
 import moment from "moment";
 import { Card, Button, Accordion, Image } from "react-bootstrap";
+import API from "../utils/API";
 
 import Comments from "./Comments.js";
 
@@ -8,6 +9,15 @@ const FeedEntry = ({ post_id, user_id, user, pic, timestamp, comments, content, 
   var formatDate = moment(timestamp).format('MMMM Do YYYY');
   var timeAgo = moment(timestamp).fromNow();
   var page = document.location.pathname;
+
+  const deletePost = () => {
+    API.deletePost(post_id)
+      .then(res => {
+        window.location.reload();
+      })
+      .catch(err => alert(err + "\n Failed to Delete the Post"))
+  }
+
   return (
     <Card className="my-3">
       <Card.Body className="py-1">
@@ -17,7 +27,7 @@ const FeedEntry = ({ post_id, user_id, user, pic, timestamp, comments, content, 
             @{user}
           </a>
           {
-            page === "/profile" && <Button variant="danger" size="sm" className="float-right">Delete Post</Button>
+            page === "/profile" && <Button variant="danger" size="sm" className="float-right" onClick={deletePost}>Delete Post</Button>
           }
         </Card.Title>
         <Card.Text>
