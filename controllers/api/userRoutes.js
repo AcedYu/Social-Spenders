@@ -114,6 +114,20 @@ router.get('/follow', async (req, res) => {
   }
 });
 
+router.delete('/unfollow/:id', async (req, res) => {
+  try {
+    const followData = Followers.destroy({
+      where: {
+        user_id: req.session.user_id,
+        follow_id: req.params.id
+      }
+    })
+    res.status(200).json(followData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
+
 router.get('/me', async (req, res) => {
   console.log(req.session.user_id);
   try {

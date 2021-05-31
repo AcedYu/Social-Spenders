@@ -64,6 +64,14 @@ const UserProfileData = () => {
       })
       .catch(err => alert("system failure, this alert should never actually show up"))
   }
+
+  const unFollowUser = (event) => {
+    API.unFollow(user.id)
+      .then(res => {
+        window.location.reload()
+      })
+      .catch(err => alert("system failure, this alert should never actually show up"))
+  }
   // returns true if the logged in user is following the viewed user
   const followBool = () => {
     // if the user view is the logged in viewer, return true
@@ -93,6 +101,9 @@ const UserProfileData = () => {
           <div className="col-4">
             {
               !followBool() && <Button size="lg" className="float-right mx-1 my-1" onClick={followUser}>Follow</Button>
+            }
+            {
+              (!!followBool() && !(state.user.id === user.id)) && <Button variant="danger" size="lg" className="float-right mx-1 my-1" onClick={unFollowUser}>Unfollow</Button>
             }
           </div>
         </div>

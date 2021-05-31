@@ -71,5 +71,8 @@ export default {
     },
     deletePost: function(id) {
       return axios.delete("/api/post/" + id);
+    },
+    unFollow: function(id) {
+      return axios.delete("/api/user/unfollow/" + id);
     }
 }
