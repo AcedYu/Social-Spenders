@@ -312,4 +312,40 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+router.put('/username', async (req, res) => {
+  try {
+    const userData = await User.update(
+      {
+        name: req.body.name
+      },
+      {
+        where: {
+          id: req.session.user_id,
+        },
+      }
+    )
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
+
+router.put('/image', async (req, res) => {
+  try {
+    const userData = await User.update(
+      {
+        image: req.body.image
+      },
+      {
+        where: {
+          id: req.session.user_id,
+        },
+      }
+    )
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
+
 module.exports = router;

@@ -20,9 +20,29 @@ const Editor = () => {
     console.log(formObject);
   };
 
+  const changeName = (event) => {
+    event.preventDefault();
+    var reqbody = {
+      name: formObject.name
+    }
+    API.editName(reqbody)
+      .then(res => {
+        window.location.reload(false)
+      })
+      .catch(err => alert(err + "\nPlease type in valid content for your username"))
+  }
+
   const changeImage = (event) => {
     event.preventDefault();
     var imageData = document.getElementById('uploadcare').getAttribute('value');
+    var reqbody = {
+      image: imageData
+    }
+    API.editPhoto(reqbody)
+      .then(res => {
+        window.location.reload(false)
+      })
+      .catch(err => alert(err + "\nPlease insert a proper file"))
   }
 
   return (
@@ -100,7 +120,7 @@ const Editor = () => {
           <Modal.Title>Input New Username:</Modal.Title>
         </Modal.Header>
         <Modal.Body className="d-flex justify-content-center">
-          <Form className="text-center">
+          <Form className="text-center" onSubmit={changeName}>
             <Form.Group>
               <Form.Control name="name" onChange={handleInputChange}/>
             </Form.Group>

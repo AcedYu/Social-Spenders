@@ -74,5 +74,11 @@ export default {
     },
     unFollow: function(id) {
       return axios.delete("/api/user/unfollow/" + id);
+    },
+    editName: function(userData) {
+      return axios.put("api/user/username", userData);
+    },
+    editPhoto: function(userData) {
+      return axios.put("api/user/image", userData);
     }
 }
