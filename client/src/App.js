@@ -9,6 +9,7 @@ import Home from "./pages/Home.js";
 import Profile from "./pages/Profile.js";
 import Market from "./pages/Market.js";
 import UserProfile from "./pages/UserProfile.js";
+import ProfileEdit from "./pages/ProfileEdit.js";
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
           </Route>
           <Route exact path="/profile">
             <Profile />
+          </Route>
+          <Route exact path="/editprofile">
+            <ProfileEdit />
           </Route>
           <Route exact path="/profile&user=:id">
             <UserProfile/>

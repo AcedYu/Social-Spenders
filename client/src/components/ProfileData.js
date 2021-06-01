@@ -38,7 +38,7 @@ const ProfileData = () => {
           <h5 className="text-secondary">{state.following.length} Following | {state.followers.length} Followers</h5>
           </Card.Body>
           <div className="col-4">
-            <Button size="lg" className="float-right mx-1 my-1">Edit Profile</Button>
+            <Button size="lg" className="float-right mx-1 my-1" href="/editprofile">Edit Profile</Button>
           </div>
         </div>
       </Card>
