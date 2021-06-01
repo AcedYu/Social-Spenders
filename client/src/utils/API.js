@@ -49,6 +49,10 @@ export default {
     login: function(data) {
       return axios.post("/api/user/login", data);
     },
+    // API post call to create a new user and log in
+    signup: function(data) {
+      return axios.post("/api/user/", data);
+    },
     // API post call to log out
     logout: function() {
       return axios.post("/api/user/logout");
@@ -69,15 +73,19 @@ export default {
     postComment: function(commentData) {
       return axios.post("/api/comment", commentData);
     },
+    // API call to delete a post by id
     deletePost: function(id) {
       return axios.delete("/api/post/" + id);
     },
+    // API call to delete a follow relationship between the logged in user and the user id
     unFollow: function(id) {
       return axios.delete("/api/user/unfollow/" + id);
     },
+    // API call to update the logged in user's name
     editName: function(userData) {
       return axios.put("api/user/username", userData);
     },
+    // API call to update the logged in user's profile picture
     editPhoto: function(userData) {
       return axios.put("api/user/image", userData);
     }
