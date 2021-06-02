@@ -5,6 +5,8 @@
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
+    "@stripe/react-stripe-js": "^1.4.1",
+    "@stripe/stripe-js": "^1.15.0",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "dotenv": "^8.2.0",
@@ -13,7 +15,9 @@
     "react-bootstrap": "^1.6.0",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "react-stripe-checkout": "^2.6.3",
+    "stripe": "^8.150.0"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -100,5 +100,8 @@ export default {
           'x-rapidapi-host': 'amazon24.p.rapidapi.com'
         }
       });
+    },
+    stripeCheckout: function(data) {
+      return axios.post('/api/stripe/checkout', data);
     }
 }

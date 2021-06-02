@@ -5,6 +5,7 @@ import { Modal, Button } from "react-bootstrap";
 import MarketEntry from "./MarketEntry.js";
 
 const MarketFeed = () => {
+  const [items, setItems] = React.useState([]);
   const [formObject, setFormObject] = React.useState({});
   const [show, setShow] = React.useState(false);
 
@@ -18,11 +19,15 @@ const MarketFeed = () => {
 
   const handleSubmit = (event) => {
     var query = formObject.query;
-    API.getAmazon(query)
+    if (!query) {
+      handleShow();
+    } else {
+      API.getAmazon(query)
       .then(res => {
-        console.log(res.data.docs)
+        setItems(res.data.docs)
       })
       .catch(err => handleShow())
+    }
   }
 
   return (
@@ -45,7 +50,18 @@ const MarketFeed = () => {
             Search
           </button>
         </div>
-        <MarketEntry />
+        <div className="card-group row-cols-2">
+          {
+            items.map((item) => (
+              <MarketEntry
+              name={item.product_title}
+              price={item.app_sale_price}
+              rating={item.evaluate_rate}
+              image={item.product_main_image_url}
+              />
+            ))
+          }
+        </div>
       </div>
       <Modal
         show={show}

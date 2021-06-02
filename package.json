@@ -22,11 +22,14 @@
   "dependencies": {
     "bcrypt": "^5.0.1",
     "connect-session-sequelize": "^7.1.1",
+    "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.16.3",
     "express-session": "^1.17.2",
     "if-env": "^1.0.4",
     "mysql2": "^2.2.5",
-    "sequelize": "^6.6.2"
+    "sequelize": "^6.6.2",
+    "stripe": "^8.150.0",
+    "uuid": "^8.3.2"
   }
 }
