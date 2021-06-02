@@ -13,10 +13,10 @@ const Comments = ({ post_id }) => {
   const handleShow = () => setShow(true);
 
   React.useEffect(() => {
-    getComents(post_id);
+    getComments(post_id);
   }, []);
 
-  const getComents = (id) => {
+  const getComments = (id) => {
     API.getPostComments(id)
       .then(res => {
         setComments(res.data)
@@ -37,7 +37,7 @@ const Comments = ({ post_id }) => {
     API.postComment(commentbody)
       .then((res) => {
         setFormObject({});
-        getComents(post_id);
+        getComments(post_id);
       })
       .catch(err => handleShow())
   }

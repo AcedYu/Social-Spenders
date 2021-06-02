@@ -88,5 +88,17 @@ export default {
     // API call to update the logged in user's profile picture
     editPhoto: function(userData) {
       return axios.put("api/user/image", userData);
+    },
+    // API call to get the Amazon Catalog
+    getAmazon: function(query) {
+      return axios.request({
+        method: 'GET',
+        url: 'https://amazon24.p.rapidapi.com/api/product',
+        params: {country: 'US', keyword: query, page: '1'},
+        headers: {
+          'x-rapidapi-key': '2657395c54mshbcc73a3e8464975p1ab501jsndd8715b1da49',
+          'x-rapidapi-host': 'amazon24.p.rapidapi.com'
+        }
+      });
     }
 }
