@@ -25,7 +25,9 @@ const MarketEntry = ({name, price, rating, image}) => {
   return (
     <div className="col my-1">
       <Card className="h-100">
-        <Card.Img variant="top" src={image} alt="PICTURE OF PRODUCT" />
+        <div className="container d-flex justify-content-center">
+          <Image variant="top" src={image} alt="PICTURE OF PRODUCT" />
+        </div>
         <Card.Body>
           <Card.Title>{name}</Card.Title>
           <Card.Text>
