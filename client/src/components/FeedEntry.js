@@ -39,8 +39,8 @@ const FeedEntry = ({ post_id, user_id, user, pic, timestamp, comments, content, 
       </Card.Body>
       {
         !!image &&
-        <div className="container">
-          <Card.Img src={image} alt="failed to load" fluid/>
+        <div className="container d-flex justify-content-center">
+          <Image src={image} alt="failed to load"/>
         </div>
       }
       <Accordion>
