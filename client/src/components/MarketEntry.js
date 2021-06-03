@@ -15,7 +15,8 @@ const MarketEntry = ({name, price, rating, image}) => {
     API.stripeCheckout(databody)
       .then(res => {
         API.postPost({
-          content: `I just purchased the ${name} for $${price}!`
+          content: `I just purchased the ${name} for $${price}!`,
+          image: image
         })
         .then().catch(err => console.log(err));
       })

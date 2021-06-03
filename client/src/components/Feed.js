@@ -41,6 +41,7 @@ const Feed = () => {
           content={post.content}
           timestamp={post.timestamp}
           comments={post.comments}
+          image={post.image}
           />
         ))
       }

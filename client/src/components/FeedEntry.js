@@ -5,7 +5,7 @@ import API from "../utils/API";
 
 import Comments from "./Comments.js";
 
-const FeedEntry = ({ post_id, user_id, user, pic, timestamp, comments, content, refresh }) => {
+const FeedEntry = ({ post_id, user_id, user, pic, timestamp, comments, content, image }) => {
   var formatDate = moment(timestamp).format('MMMM Do YYYY');
   var timeAgo = moment(timestamp).fromNow();
   var page = document.location.pathname;
@@ -37,6 +37,12 @@ const FeedEntry = ({ post_id, user_id, user, pic, timestamp, comments, content, 
           posted {timeAgo} | {formatDate}
         </Card.Text>
       </Card.Body>
+      {
+        !!image &&
+        <div className="container">
+          <Card.Img src={image} alt="failed to load" fluid/>
+        </div>
+      }
       <Accordion>
         <Card>
           <Accordion.Toggle as={Button} variant="outline-primary" eventKey="0">

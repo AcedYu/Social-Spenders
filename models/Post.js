@@ -19,6 +19,10 @@ Post.init(
       type: DataTypes.DATE,
       defaultValue: DataTypes.NOW,
     },
+    image: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
