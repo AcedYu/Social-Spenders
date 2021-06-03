@@ -1,6 +1,7 @@
 import React from "react";
 import API from "../utils/API";
 import { Modal, Button } from "react-bootstrap";
+import Loader from "react-loader-spinner";
 
 import MarketEntry from "./MarketEntry.js";
 
@@ -8,9 +9,13 @@ const MarketFeed = () => {
   const [items, setItems] = React.useState([]);
   const [formObject, setFormObject] = React.useState({});
   const [show, setShow] = React.useState(false);
+  const [load, setLoad] = React.useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const stopLoad = () => setLoad(false);
+  const startLoad = () => setLoad(true);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -19,14 +24,20 @@ const MarketFeed = () => {
 
   const handleSubmit = (event) => {
     var query = formObject.query;
+    startLoad()
     if (!query) {
       handleShow();
+      stopLoad();
     } else {
       API.getAmazon(query)
       .then(res => {
         setItems(res.data.docs)
+        stopLoad()
       })
-      .catch(err => handleShow())
+      .catch(err => {
+        handleShow();
+        stopLoad();
+      })
     }
   }
 
@@ -50,6 +61,11 @@ const MarketFeed = () => {
             Search
           </button>
         </div>
+        <Loader
+          type="BallTriangle"
+          color="skyblue"
+          visible={load}
+        />
         <div className="card-group row-cols-2">
           {
             items.map((item) => (
