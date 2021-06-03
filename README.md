@@ -64,6 +64,16 @@ Using the following APIs:
 * [Stripe](https://stripe.com/docs/api)
 * [Uploadcare](https://uploadcare.com/docs/)
 
+Additional Backend Packages:
+* [bcrypt](https://www.npmjs.com/package/bcrypt)
+* [stripe](https://www.npmjs.com/package/stripe)
+
+Additional Client Side Packages:
+* [axios](https://www.npmjs.com/package/axios)
+* [moment.js](https://www.npmjs.com/package/moment)
+* [react-loader-spinner](https://www.npmjs.com/package/react-loader-spinner)
+* [react-stripe-checkout](https://www.npmjs.com/package/react-stripe-checkout)
+
 ## Deployed Link
 
 * [See Live Site](HEROKU APP HERE)
