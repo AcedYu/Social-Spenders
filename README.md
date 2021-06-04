@@ -20,7 +20,8 @@ The program contains notable features such as:
 - Display rendered using React
 - Deployed using Heroku
 
-![Image](GIF/IMAGE LINK HERE)
+![Image](demo.gif)
+![Image](market.gif)
 
 ## Getting Started
 
