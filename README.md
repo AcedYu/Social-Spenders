@@ -77,7 +77,7 @@ Additional Client Side Packages:
 
 ## Deployed Link
 
-* [See Live Site](HEROKU APP HERE)
+* [See Live Site](https://social-spenders.herokuapp.com/)
 
 ## Authors
 AcedYu
