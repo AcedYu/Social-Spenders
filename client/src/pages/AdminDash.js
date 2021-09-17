@@ -6,11 +6,13 @@ import Nav from "../components/Nav.js";
 import Sidebar from "../components/Sidebar.js";
 import Feed from "../components/Feed.js";
 
-const Home = () => {
+const AdminDashboard = () => {
   const [auth, setAuth] = React.useState(true);
+  const [admin, setAdmin] = React.useState(false);
 
   React.useEffect(() => {
     authorize();
+    checkadmin();
   }, []);
 
   const authorize = () => {
@@ -21,19 +23,31 @@ const Home = () => {
       .catch(err => console.log(err));
   }
 
+  const checkadmin = () => {
+    API.admin_check()
+      .then(result => {
+        console.log(result.data)
+        setAdmin(result.data)
+        if (!admin) {
+          return <Redirect to="/home" />
+        }
+      })
+      .catch(err => console.log(err));
+  }
+
   if (!auth) {
     return <Redirect to="/" />
   }
 
   return (
     <div>
-      <Nav page="Home Feed" />
+      <Nav page="Administrator's Dashboard" />
       <div className="row container-fluid">
         <Sidebar />
-        <Feed />
+        <Feed isAdmin = {admin}/>
       </div>
     </div>
   );
 }
 
-export default Home;
+export default AdminDashboard;

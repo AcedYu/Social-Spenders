@@ -6,7 +6,7 @@ import API from "../utils/API";
 import FeedEntry from "./FeedEntry.js";
 import CreatePost from "./CreatePost.js";
 
-const Feed = () => {
+const Feed = ({ isAdmin }) => {
   const [state, dispatch] = useStoreContext();
 
   React.useEffect(() => {
@@ -42,6 +42,7 @@ const Feed = () => {
           timestamp={post.timestamp}
           comments={post.comments}
           image={post.image}
+          isAdmin={isAdmin}
           />
         ))
       }

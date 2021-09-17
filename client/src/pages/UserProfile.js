@@ -8,6 +8,7 @@ import UserProfileData from "../components/UserProfileData.js";
 
 const UserProfile = () => {
   const [auth, setAuth] = React.useState(true);
+  const [admin, setAdmin] = React.useState(false);
 
   React.useEffect(() => {
     authorize();
@@ -17,6 +18,15 @@ const UserProfile = () => {
     API.auth()
       .then(result => {
         setAuth(result.data)
+      })
+      .catch(err => console.log(err));
+  }
+
+  const checkadmin = () => {
+    API.admin_check()
+      .then(result => {
+        console.log(result.data)
+        setAdmin(result.data)
       })
       .catch(err => console.log(err));
   }
@@ -31,7 +41,7 @@ const UserProfile = () => {
       <Nav/>
       <div className="row container-fluid">
         <Sidebar />
-        <UserProfileData />
+        <UserProfileData/>
       </div>
     </div>
   );

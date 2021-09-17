@@ -18,7 +18,7 @@ const Market = () => {
       .then(result => {
         setAuth(result.data)
       })
-    .catch(err => console.log(err));
+      .catch(err => console.log(err));
   }
 
   if (!auth) {
@@ -27,7 +27,7 @@ const Market = () => {
 
   return (
     <div>
-      <Nav page="Marketplace"/>
+      <Nav page="Marketplace" />
       <div className="row container-fluid">
         <Sidebar />
         <MarketFeed />

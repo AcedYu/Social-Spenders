@@ -5,7 +5,7 @@ import API from "../utils/API";
 
 import Comments from "./Comments.js";
 
-const FeedEntry = ({ post_id, user_id, user, pic, timestamp, comments, content, image }) => {
+const FeedEntry = ({ post_id, user_id, user, pic, timestamp, comments, content, image, isAdmin }) => {
   var formatDate = moment(timestamp).format('MMMM Do YYYY');
   var timeAgo = moment(timestamp).fromNow();
   var page = document.location.pathname;
@@ -27,7 +27,7 @@ const FeedEntry = ({ post_id, user_id, user, pic, timestamp, comments, content, 
             @{user}
           </a>
           {
-            page === "/profile" && <Button variant="danger" size="sm" className="float-right" onClick={deletePost}>Delete Post</Button>
+            (page === "/profile" || !!isAdmin) && <Button variant="danger" size="sm" className="float-right" onClick={deletePost}>Delete Post</Button>
           }
         </Card.Title>
         <Card.Text>

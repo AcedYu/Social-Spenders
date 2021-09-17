@@ -3,6 +3,21 @@ import { Navbar, Nav, Image } from "react-bootstrap";
 import API from "../utils/API.js";
 
 const Navigation = ({ page }) => {
+  const [admin, setAdmin] = React.useState(false);
+
+  React.useEffect(() => {
+    checkadmin();
+  }, []);
+
+  const checkadmin = () => {
+    API.admin_check()
+      .then(result => {
+        console.log(result.data)
+        setAdmin(result.data)
+      })
+      .catch(err => console.log(err));
+  }
+
   function logout() {
     API.logout()
       .then(() => {
@@ -23,6 +38,12 @@ const Navigation = ({ page }) => {
         </Navbar.Brand>
         <h1 className="mx-auto">{page}</h1>
         <Nav className="ml-auto">
+          {
+            !!admin &&
+            <Nav.Link href="/admin" className="border-left">
+              <h4>Admin Dashboard</h4>
+            </Nav.Link>
+          }
           <Nav.Link href="/home" className="border-left">
             <h4>Home</h4>
           </Nav.Link>

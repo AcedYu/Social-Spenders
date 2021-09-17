@@ -10,6 +10,7 @@ import Profile from "./pages/Profile.js";
 import Market from "./pages/Market.js";
 import UserProfile from "./pages/UserProfile.js";
 import ProfileEdit from "./pages/ProfileEdit.js";
+import AdminDashboard from "./pages/AdminDash.js";
 
 function App() {
   return (
@@ -36,6 +37,9 @@ function App() {
           </Route>
           <Route exact path="/market">
             <Market />
+          </Route>
+          <Route exact path="/admin">
+            <AdminDashboard />
           </Route>
         </Switch>
       </StoreProvider>

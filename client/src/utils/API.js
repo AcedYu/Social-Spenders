@@ -7,7 +7,7 @@ export default {
   },
   // returns a boolean for the admin(true if admin false if not)
   admin_check: function () {
-    return axios.get("/api/user/auth");
+    return axios.get("/api/user/admincheck");
   },
   // Gets all posts
   getPosts: function () {

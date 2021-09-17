@@ -105,6 +105,9 @@ const UserProfileData = () => {
             {
               (!!followBool() && !(state.user.id === user.id)) && <Button variant="danger" size="lg" className="float-right mx-1 my-1" onClick={unFollowUser}>Unfollow</Button>
             }
+            {
+
+            }
           </div>
         </div>
       </Card>
