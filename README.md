@@ -13,7 +13,6 @@ The program contains notable features such as:
 - A RESTful API created by using Node.js and Express.js
 - A Database hosted by MySQL and uses the Sequelize ORM
 - GET and POST routes for retrieving and adding new data
-- Dynamic image rendering using the Anime.js API
 - In app purchases served by the Stripe API
 - Authentication with express-session and cookies
 - Environment variables for API keys and other sensitive information
