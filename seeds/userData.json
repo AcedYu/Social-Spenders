@@ -23,5 +23,11 @@
     "name": "Demo",
     "email": "demo@email.com",
     "password": "password"
+  },
+  {
+    "name": "Admin",
+    "email": "admin@email.com",
+    "password": "password",
+    "is_admin": true
   }
 ]

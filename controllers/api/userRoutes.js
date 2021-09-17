@@ -41,6 +41,7 @@ router.post('/login', async (req, res) => {
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
+      req.session.is_admin = userData.is_admin;
 
       res.json({
         user: userData,
@@ -50,6 +51,24 @@ router.post('/login', async (req, res) => {
 
   } catch (err) {
     res.status(400).json(err);
+  }
+});
+
+// Authorization API call, will return req.session.logged_in
+router.get('/auth', (req, res) => {
+  if (req.session.logged_in) {
+    res.status(200).json(req.session.logged_in);
+  } else {
+    res.status(200).json(false);
+  }
+});
+
+// Authorization API call, will return req.session.is_admin
+router.get('/admincheck', (req, res) => {
+  if (req.session.is_admin) {
+    res.status(200).json(req.session.is_admin);
+  } else {
+    res.status(200).json(false);
   }
 });
 
