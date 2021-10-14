@@ -1,5 +1,5 @@
 # Social-Spenders
-Spocial Spenders is a fullstack application using React as the framework. I decided to build a Social Networking site where users can publicize their thoughts and purchases in the website.
+Spocial Spenders is a fullstack application using React as the framework along with MySQL as the backend database, connected with Node.js and Express.js. I decided to build a Social Networking site where users can publicize their thoughts and purchases in the website.
 
 The app contains notable features such as:
 - Login and Signup function for users with account validation
