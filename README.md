@@ -1,5 +1,5 @@
 # Social-Spenders
-This assignment was assigned by the U.C. Berkeley Extension Full-time Full Stack Flex Boot Camp. This is the third and final major project assigned by the program. In this assignment, I was tasked to create a fullstack application using React as the framework. I decided to build a Social Networking site where users can publicize their thoughts and purchases in the website.
+Spocial Spenders is a fullstack application using React as the framework. I decided to build a Social Networking site where users can publicize their thoughts and purchases in the website.
 
 The app contains notable features such as:
 - Login and Signup function for users with account validation
@@ -81,4 +81,3 @@ Additional Client Side Packages:
 ## Authors
 AcedYu
 - [Link to Github](https://github.com/AcedYu)
-- [Link to LinkedIn](https://www.linkedin.com/in/alex-yu-3712811b9/)
